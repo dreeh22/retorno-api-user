@@ -1,0 +1,20 @@
+<div *ngIf="listaPost">
+
+    <div class="tituloPagina">
+        <h4>Meus Posts</h4>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-4" *ngFor="let item of listaPost">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.title}}</h5>
+                    <p class="card-text"> {{item.body}}</p>
+                    <a href="#" class="btn btn-dark botao-comentario">Comentários</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

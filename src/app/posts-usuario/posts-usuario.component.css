@@ -1,0 +1,30 @@
+.row{
+    margin-left:0.5%;
+    margin-right: 0.5%;
+    
+}
+
+.tituloPagina{
+    margin-left: 1.6%;
+    margin-bottom: 1.5%;
+}
+
+.card{
+    height: 270px;
+    margin-bottom: 2%;
+    padding: 0;
+}
+
+.card-title{
+    min-height: 45px;
+    max-height: 45px;
+}
+
+.card-text{
+    min-height: 130px;
+max-height: 130px;
+
+padding: 0;
+}
+
+

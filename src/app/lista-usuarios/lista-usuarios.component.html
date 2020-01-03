@@ -1,0 +1,58 @@
+<div class="tituloPagina">
+    <h4>Usuários</h4>
+</div>
+
+<div class="divTabelaUsuarios col-sm-{{gridTabela}}">
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Apelido</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let lista of listaUsuarios | paginate: { itemsPerPage: 6, currentPage: p }">
+                <td>{{lista.id}}</td>
+                <td><a class="link-lista-usuarios font-weight-bold"  (click)="detalharDados(lista)">{{lista.name}}</a></td>
+                <td>{{lista.email}}</td>
+                <td>{{lista.username}}</td>
+                <td>
+                    <button class="btn btn-dark" (click)="capturarUserPosts(lista)">Posts</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <pagination-controls (pageChange)="p = $event" 
+                         directionLinks="false"
+                         autoHide="false"
+                         responsive="true"
+                         class="paginacao"></pagination-controls>
+
+</div>
+
+<div class="card border-secondary" *ngIf="abrirDatalhe">
+
+    <div class="card-header bg-dark text-light" >Detalhes</div>
+
+    <div class="card-body text-secondary">
+      <h5 class="card-title">Endereço Residencial: </h5>
+      <p class="card-text">Cidade: {{usuario.address.city}}</p>
+      <p class="card-text">Rua: {{usuario.address.street}}</p>
+      <p class="card-text">Apartamento: {{usuario.address.suite}}</p>
+      <p class="card-text">CEP: {{usuario.address.zipcode}}</p>
+
+      <h5 class="card-title">Endereço Comercial: </h5>
+      <p class="card-text">Nome: {{usuario.company.name}}</p>
+      <p class="card-text">Site: {{usuario.website}}</p>
+      <p class="card-text">Telefone: {{usuario.phone}}</p>
+      <p class="card-text">Área de atuação: {{usuario.company.catchPhrase}}</p>
+
+    </div>
+
+</div>
+
