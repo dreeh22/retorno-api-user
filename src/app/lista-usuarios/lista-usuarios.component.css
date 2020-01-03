@@ -39,3 +39,7 @@
     text-decoration: underline #000;
     cursor:pointer;
 }
+
+.a{
+    font-weight: bold;
+}
