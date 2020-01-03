@@ -15,7 +15,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let lista of listaUsuarios | paginate: { itemsPerPage: 6, currentPage: index }">
+            <tr *ngFor="let lista of listaUsuarios | paginate: { itemsPerPage: 6, currentPage: p}">
                 <td>{{lista.id}}</td>
                 <td><a class="link-lista-usuarios font-weight-bold"  (click)="detalharDados(lista)">{{lista.name}}</a></td>
                 <td>{{lista.email}}</td>

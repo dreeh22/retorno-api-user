@@ -12,6 +12,8 @@ import { RepassarDadosService } from '../services/repassar-dados.service';
 })
 export class ListaUsuariosComponent implements OnInit {
 
+  p: number = 1;
+
   abrirDatalhe= false;
   cardAberto = true;
   divAberto = true;
