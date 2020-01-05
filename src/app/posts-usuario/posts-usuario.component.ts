@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class PostsUsuarioComponent implements OnInit {
 
-  listaPost: Post[]= [];
+  listaPost: Post[] = [];
 
   post: Post = {
     userId: 0,
@@ -19,23 +19,30 @@ export class PostsUsuarioComponent implements OnInit {
     title: '',
     body: ''
 
-    }
+  }
 
-  constructor(private usuariosService: UsuarioService, 
-              private dataPostsUser: RepassarDadosService) { 
+  display: boolean = false;
 
-              }
+  constructor(private usuariosService: UsuarioService,
+    private dataPostsUser: RepassarDadosService) {
+
+  }
 
   ngOnInit() {
-    
+
     this.listarPosts();
     console.log(this.listaPost);
 
   }
 
-  listarPosts(){
+  listarPosts() {
     this.post = this.dataPostsUser.getPostUser();
     this.usuariosService.getPostUserId(this.post.id).subscribe(dados => this.listaPost = dados);
+  }
+
+  showDialog(dados) {
+    this.display = true;
+    this.post = dados;
   }
 
 }

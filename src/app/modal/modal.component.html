@@ -1,0 +1,12 @@
+<div *ngIf="listaComentario">
+
+<p-card *ngFor="let comentarios of listaComentario" header="{{comentarios.name}}"  styleClass="cardTeste">
+
+    <div>{{comentarios.body}}</div>
+
+    <p-footer>
+       {{comentarios.email}}
+    </p-footer>
+</p-card>
+
+</div>
