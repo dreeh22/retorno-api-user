@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UsuarioService } from '../services/usuario.service';
 import { Comentario } from '../models/comentarios';
 import { Post } from '../models/post';
@@ -10,28 +10,15 @@ import { Post } from '../models/post';
 })
 export class ModalComponent implements OnInit {
 
-  //comentario: Comentario = {
-  //  postId: 0,
-  //  id: 0,
-  //  name: '',
-  //  email: '',
-  //  body: ''
-  //}
+  @Input() listaComentarioRecebido: Comentario [] = [];
 
-  listaComentario: Comentario [] = [];
 
-  @Input() post: Post;
-
-  constructor(private usuarioService: UsuarioService) { }
+  constructor() { }
 
   ngOnInit() {
 
-    this.listComments();
-
+    console.log('DADOS RECEBIDOS COM SUCESSO: ',this.listaComentarioRecebido);
   }
 
-  listComments(){
-    this.usuarioService.getComentariosPost(this.post.id).subscribe(dados => this.listaComentario = dados);
-  }
 
 }

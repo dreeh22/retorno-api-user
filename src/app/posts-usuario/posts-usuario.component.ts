@@ -3,6 +3,7 @@ import { Post } from '../models/post';
 import { UsuarioService } from '../services/usuario.service';
 import { RepassarDadosService } from '../services/repassar-dados.service';
 import { Router } from '@angular/router';
+import { Comentario } from './../models/comentarios';
 
 @Component({
   selector: 'app-posts-usuario',
@@ -21,6 +22,8 @@ export class PostsUsuarioComponent implements OnInit {
 
   }
 
+  listaComentario: Comentario [] = [];
+
   display: boolean = false;
 
   constructor(private usuariosService: UsuarioService,
@@ -31,7 +34,6 @@ export class PostsUsuarioComponent implements OnInit {
   ngOnInit() {
 
     this.listarPosts();
-    console.log(this.listaPost);
 
   }
 
@@ -42,7 +44,8 @@ export class PostsUsuarioComponent implements OnInit {
 
   showDialog(dados) {
     this.display = true;
-    this.post = dados;
+    this.usuariosService.getComentariosPost(dados.id).subscribe(dados => this.listaComentario = dados);
   }
+
 
 }
